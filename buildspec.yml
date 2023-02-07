@@ -5,11 +5,11 @@ phases:
   build:
     commands:
       - echo "Entered the build phase..."
-      -zip -r deployment_package.zip HangmanGame.py 
+      - zip -r deployment_package.zip HangmanGame.py 
   post_build:
     commands:
       - echo "Deployed to S3"
-      -aws lambda update-function-code --funtion-name HangmanGame --zip-file fileb://deployment_package.zip
+      - aws lambda update-function-code --funtion-name HangmanGame --zip-file fileb://deployment_package.zip
 artifacts:
 type: zip
   paths:
