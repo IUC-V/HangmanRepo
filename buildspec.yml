@@ -1,15 +1,13 @@
 version: 0.2
 
-
 phases:
-  build:
-    commands:
-      - echo "Entered the build phase..."
-      - zip -r deployment_package.zip lambda_function.py 
-  post_build:
-    commands:
-      - echo "Deployed to S3"
-      - aws lambda update-function-code --funtion-name HangmanGame --zip-file fileb://deployment_package.zip
+pre_build:
+  commands:
+    - pip3 install awscli --upgrade --user
+    - aws codeartifact login --tool pip --domain my_domain --domain-owner 111122223333 --repository my_repo
+build:
+  commands:
+    - pip install requests
 artifacts:
   type: zip
   paths:
