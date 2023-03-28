@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd /home/ubuntu
-start: HangmanGame.py
+pm2 -f start server.js
