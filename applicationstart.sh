@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd /home/ubuntu
-pm2 -f start HangmanGame.py
+start HangmanGame.py
